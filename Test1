@@ -1,0 +1,100 @@
+import { TIMEOUT } from "dns";
+import { exists } from "fs";
+{
+    "projectId"; "voua9x"
+}
+"experimentalSourceRewriting". true;
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+    });
+
+describe('Verify Venzi Super Admin Page', () => {
+
+    it('LoginScreenValidations', () => {
+
+    //Launch URL
+      cy.visit('https://event-super-admin-ts.mithyalabs.com/')
+      cy.get('#login-form_1').type('superadmin@eventtool.com');
+      cy.get('#login-form_2').type('97Z5$z@_');
+     cy.get('.jss11 > .MuiButtonBase-root > .MuiButton-label').click();
+     cy.wait(6000)
+    });
+    it('CreateNewClient', () => {
+       // cy.get('.MuiFab-label > .MuiSvgIcon-root').click();
+
+       //Check the fields in the form
+      // cy.contains('Client Name').should('exist')
+     //  cy.contains('Contact name').should('exist')
+      // cy.contains('Contact email').should('exist')
+      // cy.contains('SUBMIT').should('exist');
+       
+    //Check for the mandatory fields
+   // cy.get('form > .MuiButtonBase-root > .MuiButton-label').click();
+   // cy.wait(1000)
+   // cy.get('#eventForm_3-helper-text').contains('Required');
+   // cy.get('#eventForm_4-helper-text').contains('Required');
+    //cy.get('#eventForm_5-helper-text').contains('Required');
+
+     //Validating 'Email' field
+
+     //cy.get('#eventForm_5').type('raji');
+    // cy.get('#eventForm_5-helper-text').contains('Invalid email');
+
+     //Create New client with valid input
+
+     //cy.get('#eventForm_3').type('QA Auto');
+    // cy.get('#eventForm_4').type('Tester');
+   //  cy.get('#eventForm_5').type('tester@qaoncloud.com');
+   //  cy.get('form > .MuiButtonBase-root > .MuiButton-label').click();
+    // cy.wait(20000)
+     //cy.contains('Client created successfully').should('exist')
+    });
+
+    it('Opening New client', () => {
+       
+        cy.contains('QA Auto').click();
+        
+        //Verifying fields in the Info tab
+        cy.contains('QA Auto').should('exist')
+        cy.contains('CLIENT URL').should('exist')
+        cy.contains('Regions').should('exist')
+        cy.contains('RELATIONSHIP').should('exist')
+        cy.contains('INDUSTRIES').should('exist')
+        cy.contains('LEAD STATUS').should('exist')
+        cy.contains('LANGUAGES').should('exist')
+        //Validating Client Name
+        cy.get('#Agency-Form_9').clear();
+        cy.get('.MuiButton-contained > .MuiButton-label').click();
+        cy.contains('This is a required field').should('exist')
+        cy.get('#Agency-Form_9').type('QA Auto ');
+        //Validating Client URL
+       cy.get('.MuiPaper-root > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').clear();
+        cy.contains('This field is a required').should('exist')
+        cy.get('.MuiPaper-root > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('qaauto');
+       //Validating Region field
+        cy.get('.jss674 > .MuiFormControl-root').type("India{enter}");
+        cy.get('.jss674 > .MuiFormControl-root').type("German{enter}");
+               cy.get('.MuiButton-contained > .MuiButton-label').click();
+        cy.contains('Agency Edited Successfully').should('exist')
+        //Validating 'Relationship' field
+        cy.get('.jss681 > .MuiButtonBase-root > .MuiButton-label').click();
+        cy.get('.jss709 > .jss674 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type("Relation1{enter}");
+        cy.get('.jss709 > .jss674 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type("Relation2{enter}");
+        cy.get('.jss716 > .MuiButton-contained > .MuiButton-label').click();
+        cy.contains("RELATION Updated").should('exist')
+        //Validating 'Industries' field
+        cy.get('.jss834 > .MuiButtonBase-root > .MuiButton-label').click();
+        cy.get('.jss848 > .jss821 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type("Industry1{enter}");
+        cy.get('.jss848 > .jss821 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type("Industry2{enter}");
+        cy.get('.jss855 > .MuiButton-contained > .MuiButton-label').click();
+    cy.contains('INDUSTRY Updated').should('exist')
+    //Validating 'Lead Status' field
+    cy.get('.jss840 > .MuiButtonBase-root > .MuiButton-label').click();
+    cy.get('.jss865 > .jss821 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type("Lead1{enter}");
+    cy.get('.jss865 > .jss821 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type("Lead2{enter}");
+   
+
+});
+});
