@@ -95,7 +95,7 @@ describe('Verify Venzi Super Admin Page', () => {
     cy.get('.jss865 > .jss821 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type("Lead1{enter}");
     cy.get('.jss865 > .jss821 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type("Lead2{enter}");
    cy.get('.jss772 > .MuiButton-contained > .MuiButton-label').click();
-    cy.wait(3000)
+   // cy.wait(3000)
   //  cy.contains('LEVEL Updated').should('exist')
 
 });
